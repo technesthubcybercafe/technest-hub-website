@@ -443,3 +443,79 @@ footer {
     padding: 0 10px;
   }
 }
+/* About Us Section */
+#about {
+  padding: 60px 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
+  position: relative;
+  z-index: 1;
+  color: #ddd;
+}
+
+#about p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+#about h2 {
+  font-size: 2.4rem;
+  text-align: center;
+  color: #00ffff;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* CEO Message Box */
+.ceo-message {
+  margin-top: 40px;
+  background-color: rgba(255, 255, 255, 0.07);
+  padding: 30px 25px;
+  border-left: 6px solid #00ffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+}
+
+.ceo-message h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #00ffff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+.ceo-message p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #eee;
+  margin-bottom: 15px;
+}
+
+.ceo-message strong {
+  color: #00ffff;
+}
+.ceo-profile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.ceo-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00ffff;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+}
+
+.ceo-text {
+  flex: 1;
+  min-width: 250px;
+}
