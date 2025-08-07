@@ -1,9 +1,7 @@
-// Ensure DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
   const forms = document.querySelectorAll(".contact-form");
 
-  // Initialize EmailJS with your Public Key
-  emailjs.init("FL8CGm23lxwKi-ADg");
+  emailjs.init("z7pQL2vENnZviURte"); // Use your actual Public Key
 
   forms.forEach((form) => {
     form.addEventListener("submit", function (e) {
@@ -16,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const message = form.querySelector("textarea").value.trim();
       const time = new Date().toLocaleString();
 
-      // Check that all fields are filled
       if (!name || !email || !title || !message) {
         alert("⚠️ Please fill in all fields.");
         return;
@@ -25,26 +22,25 @@ document.addEventListener("DOMContentLoaded", function () {
       button.textContent = "Sending...";
       button.disabled = true;
 
-      // Send email via EmailJS
-      emailjs
-        .send("service_jqnnoo8", "template_oxascnk", {
-          name,
-          email,
-          title,
-          message,
-          time,
-        })
-        .then(() => {
-          form.reset(); // No alert sent to client
-        })
-        .catch((error) => {
-          console.error("EmailJS Error:", error);
-          alert("❌ Failed to send message. Please try again later.");
-        })
-        .finally(() => {
-          button.textContent = "Send Message";
-          button.disabled = false;
-        });
+      emailjs.send("service_zrgl9u6", "template_oxascnk", {
+        name,
+        email,
+        title,
+        message,
+        time,
+      })
+      .then(() => {
+        form.reset();
+        // Message sent silently
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("❌ Failed to send message. Please try again later.");
+      })
+      .finally(() => {
+        button.textContent = "Send Message";
+        button.disabled = false;
+      });
     });
   });
 });
