@@ -1,38 +1,54 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector(".contact-form");
+  const forms = document.querySelectorAll(".contact-form");
 
-  emailjs.init("FL8CGm23lxwKi-ADg"); // Your Public Key
+  // Initialize EmailJS
+  emailjs.init("FL8CGm23lxwKi-ADg"); // your public key
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+  forms.forEach((form) => {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    const button = form.querySelector("button");
-    button.textContent = "Sending...";
-    button.disabled = true;
+      const button = form.querySelector("button");
+      button.textContent = "Sending...";
+      button.disabled = true;
 
-    const templateParams = {
-      name: form.querySelector("input[placeholder='Your Name']").value.trim(),
-      email: form.querySelector("input[placeholder='Your Email']").value.trim(),
-      title: form.querySelector("input[placeholder='Subject']").value.trim(),
-      message: form.querySelector("textarea").value.trim(),
-      time: new Date().toLocaleString()
-    };
+      // Get values directly from input names
+      const name = form.querySelector("input[name='name']").value.trim();
+      const email = form.querySelector("input[name='email']").value.trim();
+      const title = form.querySelector("input[name='title']").value.trim();
+      const message = form.querySelector("textarea[name='message']").value.trim();
+      const time = new Date().toLocaleString();
 
-    // Send to Admin
-    emailjs.send("service_jqnnoo8", "template_oxascnk", templateParams)
-      .then(() => console.log("✅ Sent to Admin"))
-      .catch((err) => console.error("❌ Admin email failed:", err));
+      // Params for EmailJS
+      const params = {
+        name: name,
+        email: email,
+        title: title,
+        message: message,
+        time: time
+      };
 
-    // Send to Client
-    emailjs.send("service_jqnnoo8", "template_dz8u0x7", templateParams)
-      .then(() => {
-        alert("✅ Your message has been sent successfully! Please check your email.");
-        form.reset();
-      })
-      .catch((err) => console.error("❌ Client email failed:", err))
-      .finally(() => {
-        button.textContent = "Send Message";
-        button.disabled = false;
-      });
+      // 1️⃣ Send to Admin
+      emailjs.send("service_jqnnoo8", "contact_to_admin", params)
+        .then(() => {
+          console.log("✅ Sent to admin");
+
+          // 2️⃣ Send to Client after admin email succeeds
+          return emailjs.send("service_jqnnoo8", "contact_to_client", params);
+        })
+        .then(() => {
+          console.log("✅ Sent confirmation to client");
+          alert("✅ Your message has been sent successfully!");
+          form.reset();
+        })
+        .catch((error) => {
+          console.error("❌ EmailJS Error:", error);
+          alert("❌ Failed to send message. Please try again later.");
+        })
+        .finally(() => {
+          button.textContent = "Send Message";
+          button.disabled = false;
+        });
+    });
   });
 });
