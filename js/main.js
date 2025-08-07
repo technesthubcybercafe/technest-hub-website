@@ -1,47 +1,46 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector(".contact-form");
+  const forms = document.querySelectorAll(".contact-form");
 
-  // Init EmailJS with your Public Key
+  // Initialize EmailJS
   emailjs.init("FL8CGm23lxwKi-ADg");
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+  forms.forEach((form) => {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    // Set time value in hidden input
-    form.time.value = new Date().toLocaleString();
+      const button = form.querySelector("button");
+      button.textContent = "Sending...";
+      button.disabled = true;
 
-    const button = form.querySelector("button");
-    button.textContent = "Sending...";
-    button.disabled = true;
+      // Get form values
+      const name = form.querySelector("input[placeholder='Your Name']").value.trim();
+      const email = form.querySelector("input[placeholder='Your Email']").value.trim();
+      const title = form.querySelector("input[placeholder='Subject']").value.trim();
+      const message = form.querySelector("textarea").value.trim();
+      const time = new Date().toLocaleString();
 
-    const formData = {
-      name: form.name.value.trim(),
-      email: form.email.value.trim(),
-      title: form.title.value.trim(),
-      message: form.message.value.trim(),
-      time: form.time.value
-    };
+      const formData = { name, email, title, message, time };
 
-    // 1️⃣ Send to Admin
-    emailjs.send("service_jqnnoo8", "contact_to_admin", formData)
-      .then(() => {
-        console.log("✅ Admin email sent");
+      // Step 1: Send to Admin
+      emailjs.send("service_jqnnoo8", "template_oxascnk", formData)
+        .then(() => {
+          console.log("✅ Sent to Admin");
 
-        // 2️⃣ Send to Client
-        return emailjs.send("service_jqnnoo8", "contact_to_client", formData);
-      })
-      .then(() => {
-        console.log("✅ Client email sent");
-        alert("✅ Your message has been sent successfully!");
-        form.reset();
-      })
-      .catch((error) => {
-        console.error("❌ EmailJS Error:", error);
-        alert("❌ Failed to send message. Please try again later.");
-      })
-      .finally(() => {
-        button.textContent = "Send Message";
-        button.disabled = false;
-      });
+          // Step 2: Send Auto-Reply to Client
+          return emailjs.send("service_jqnnoo8", "template_dz8u0x7", formData);
+        })
+        .then(() => {
+          alert("✅ Your message was sent successfully! Check your email for confirmation.");
+          form.reset();
+        })
+        .catch((error) => {
+          console.error("❌ EmailJS Error:", error);
+          alert("❌ Failed to send message. Please try again later.");
+        })
+        .finally(() => {
+          button.textContent = "Send Message";
+          button.disabled = false;
+        });
+    });
   });
 });
