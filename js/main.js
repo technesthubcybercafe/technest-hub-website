@@ -40,10 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
           alert("✅ Your message has been sent successfully!");
           form.reset();
         })
-        .catch((error) => {
-          console.error("❌ EmailJS Error:", error);
-          alert("❌ Failed to send message. Please try again later.");
-        })
         .finally(() => {
           button.textContent = "Send Message";
           button.disabled = false;
@@ -51,3 +47,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
