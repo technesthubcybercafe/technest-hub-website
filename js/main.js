@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const forms = document.querySelectorAll(".contact-form");
 
   // Initialize EmailJS
-  emailjs.init("FL8CGm23lxwKi-ADg");
+  emailjs.init("FL8CGm23lxwKi-ADg"); // Public Key
 
   forms.forEach((form) => {
     form.addEventListener("submit", function (e) {
@@ -12,25 +12,32 @@ document.addEventListener("DOMContentLoaded", function () {
       button.textContent = "Sending...";
       button.disabled = true;
 
-      // Get form values
+      // Collect form values
       const name = form.querySelector("input[placeholder='Your Name']").value.trim();
       const email = form.querySelector("input[placeholder='Your Email']").value.trim();
       const title = form.querySelector("input[placeholder='Subject']").value.trim();
       const message = form.querySelector("textarea").value.trim();
       const time = new Date().toLocaleString();
 
-      const formData = { name, email, title, message, time };
+      const templateParams = {
+        name: name,
+        email: email,
+        title: title,
+        message: message,
+        time: time
+      };
 
-      // Step 1: Send to Admin
-      emailjs.send("service_jqnnoo8", "template_oxascnk", formData)
+      // STEP 1: Send to ADMIN
+      emailjs.send("service_jqnnoo8", "template_oxascnk", templateParams)
         .then(() => {
-          console.log("✅ Sent to Admin");
+          console.log("✅ Sent to admin");
 
-          // Step 2: Send Auto-Reply to Client
-          return emailjs.send("service_jqnnoo8", "template_dz8u0x7", formData);
+          // STEP 2: Send confirmation to CLIENT
+          return emailjs.send("service_jqnnoo8", "template_dz8u0x7", templateParams);
         })
         .then(() => {
-          alert("✅ Your message was sent successfully! Check your email for confirmation.");
+          console.log("✅ Confirmation sent to client");
+          alert("✅ Your message has been sent successfully!");
           form.reset();
         })
         .catch((error) => {
