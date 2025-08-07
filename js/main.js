@@ -20,20 +20,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Send to Admin
     emailjs.send("service_jqnnoo8", "template_oxascnk", templateParams)
-      .then(() => {
-        console.log("✅ Sent to Admin");
+      .then(() => console.log("✅ Sent to Admin"))
+      .catch((err) => console.error("❌ Admin email failed:", err));
 
-        // Send Auto-reply to Client
-        return emailjs.send("service_jqnnoo8", "template_dz8u0x7", templateParams);
-      })
+    // Send to Client
+    emailjs.send("service_jqnnoo8", "template_dz8u0x7", templateParams)
       .then(() => {
         alert("✅ Your message has been sent successfully! Please check your email.");
         form.reset();
       })
-      .catch((error) => {
-        console.error("❌ EmailJS Error:", error);
-        alert("❌ Failed to send message. Please try again later.");
-      })
+      .catch((err) => console.error("❌ Client email failed:", err))
       .finally(() => {
         button.textContent = "Send Message";
         button.disabled = false;
