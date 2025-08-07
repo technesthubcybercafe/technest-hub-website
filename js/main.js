@@ -1,4 +1,3 @@
-// Ensure DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
   const forms = document.querySelectorAll(".contact-form");
 
@@ -9,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      // Show loading state
       const button = form.querySelector("button");
       button.textContent = "Sending...";
       button.disabled = true;
@@ -21,39 +19,35 @@ document.addEventListener("DOMContentLoaded", function () {
       const message = form.querySelector("textarea").value.trim();
       const time = new Date().toLocaleString();
 
-      // ---- 1️⃣ Send email to Admin ----
-      emailjs.send("service_jqnnoo8", "template_oxascnk", {
+      const templateParams = {
         name: name,
         email: email,
         title: title,
         message: message,
         time: time
-      })
-      .then(() => {
-        console.log("✅ Admin email sent");
+      };
 
-        // ---- 2️⃣ Send confirmation email to Client ----
-        return emailjs.send("service_jqnnoo8", "template_dz8u0x7", {
-          name: name,
-          email: email, // client's email
-          title: title,
-          message: message,
-          time: time
+      // 1️⃣ Send to Admin
+      emailjs
+        .send("service_jqnnoo8", "contact_to_admin", templateParams)
+        .then(() => {
+          console.log("✅ Message sent to Admin");
+
+          // 2️⃣ Send to Client
+          return emailjs.send("service_jqnnoo8", "contact_to_client", templateParams);
+        })
+        .then(() => {
+          alert("✅ Your message has been sent successfully!");
+          form.reset();
+        })
+        .catch((error) => {
+          console.error("❌ EmailJS Error:", error);
+          alert("Failed to send message. Please try again later.");
+        })
+        .finally(() => {
+          button.textContent = "Send Message";
+          button.disabled = false;
         });
-      })
-      .then(() => {
-        alert("✅ Your message has been sent successfully!");
-        form.reset();
-      })
-      .catch((error) => {
-        console.error("EmailJS Error:", error);
-        alert("❌ Failed to send message. Please try again later.");
-      })
-      .finally(() => {
-        button.textContent = "Send Message";
-        button.disabled = false;
-      });
-
     });
   });
 });
