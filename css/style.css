@@ -254,6 +254,17 @@ header {
   background-color: rgba(0, 255, 255, 0.1);
   color: #00ffff;
 }
+.gallery-title {
+  font-size: 2.4rem;
+  text-align: center;
+  color: #00ffff;
+  margin: 40px auto 25px;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  border-bottom: 3px solid rgba(0, 255, 255, 0.3);
+  width: fit-content;
+  padding-bottom: 8px;
+}
 .gallery-slider {
   width: 100%;
   max-width: 100%;
@@ -544,6 +555,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
