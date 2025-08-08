@@ -255,36 +255,65 @@ header {
   color: #00ffff;
 }
 .gallery-slider {
-  overflow: hidden;
   width: 100%;
   max-width: 100%;
-  padding: 20px;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-container {
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .gallery-track {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  display: flex;
+  transition: transform 0.5s ease-in-out;
   gap: 10px;
-  animation: scrollGallery 20s linear infinite;
 }
 
 .gallery-track img {
-  width: 100%;
-  height: auto;
+  flex: 0 0 calc(50% - 5px); /* 2 images per row */
+  height: 160px;
   object-fit: cover;
   border-radius: 8px;
-  transition: transform 0.3s;
 }
 
-@keyframes scrollGallery {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.gallery-nav {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 8px;
+  position: absolute;
+  top: 45%;
+  z-index: 5;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s;
 }
 
+.gallery-nav:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.gallery-nav.prev {
+  left: 0;
+}
+
+.gallery-nav.next {
+  right: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .gallery-track img {
+    flex: 0 0 calc(50% - 5px);
+    height: 120px;
+  }
+}
 #contact h2 {
   color: #00ffff;
   font-size: 2rem;
@@ -514,6 +543,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
