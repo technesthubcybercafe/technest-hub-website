@@ -107,7 +107,9 @@
     </ul>
   </section>
 <section class="gallery-slider">
-  <div class="gallery-track">
+  <div class="gallery-container">
+    <button class="gallery-nav prev" onclick="moveGallery(-1)">❮</button>
+    <div class="gallery-track" id="galleryTrack">
       <img src="image/view-1.jpg" alt="Cafe View 1">
       <img src="image/view-2.jpg" alt="Cafe View 2">
       <img src="image/view-3.jpg" alt="Cafe View 3">
@@ -117,7 +119,9 @@
     <img src="image/image4.jpeg" alt="Cafe View 4">
     <img src="image/image5.jpg" alt="Cafe View 5">
     <img src="image/image6.jpg" alt="cafe view 6">
-   </div>
+  </div>
+    <button class="gallery-nav next" onclick="moveGallery(1)">❯</button>
+  </div>
 </section>
   <!-- Contact Section -->
   <section id="contact" class="section">
@@ -148,6 +152,7 @@
 <script src="js/main.js"></script>
 </body>
 </html>
+
 
 
 
