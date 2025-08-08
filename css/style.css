@@ -256,25 +256,26 @@ header {
 }
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Tiny size */
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 6px;
   padding: 10px;
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
   justify-items: center;
 }
 
 .gallery-grid img {
-  width: 80px;
-  height: 60px;
+  width: 60px;
+  height: 45px;
   object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
 }
 
 .gallery-grid img:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
 /* Contact Form */
@@ -516,6 +517,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
