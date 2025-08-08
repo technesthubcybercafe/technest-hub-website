@@ -150,8 +150,33 @@
 <script src="https://files.bpcontent.cloud/2025/08/07/10/20250807100845-06J8YQYD.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script src="js/main.js"></script>
+<script>
+  let currentIndex = 0;
+
+  function moveGallery(direction) {
+    const track = document.getElementById('galleryTrack');
+    const images = track.querySelectorAll('img');
+    const visibleCount = 2;
+    const totalSlides = Math.ceil(images.length / visibleCount);
+
+    currentIndex += direction;
+
+    if (currentIndex < 0) currentIndex = totalSlides - 1;
+    if (currentIndex >= totalSlides) currentIndex = 0;
+
+    const slideWidth = images[0].offsetWidth + 10; // image width + gap
+    const newTransform = -(slideWidth * visibleCount * currentIndex);
+
+    track.style.transform = `translateX(${newTransform}px)`;
+  }
+
+  setInterval(() => {
+    moveGallery(1);
+  }, 4000); // change every 4 seconds
+</script>
 </body>
 </html>
+
 
 
 
