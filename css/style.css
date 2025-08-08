@@ -254,22 +254,46 @@ header {
   background-color: rgba(0, 255, 255, 0.1);
   color: #00ffff;
 }
+/* === GALLERY SECTION (MATCHING SERVICES STYLE) === */
+.gallery {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  margin: 30px auto;
+  max-width: 1200px;
+}
+
+.gallery h2 {
+  font-size: 36px;
+  color: #0ff;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px #0ff, 0 0 15px #0ff;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 10px;
-  padding: 10px;
-  justify-items: center;
-  align-items: center;
+  gap: 20px;
+  justify-content: center;
 }
 
 .gallery-grid img {
   width: 100px;
   height: 100px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid #0ff;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.gallery-grid img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
 
 #contact h2 {
   color: #00ffff;
@@ -500,6 +524,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
