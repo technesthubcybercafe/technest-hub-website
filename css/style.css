@@ -105,26 +105,43 @@ header {
   box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
 }
 
-.hero h2 {
-  font-size: 3rem;
-  color: #00ffff;
-  margin-bottom: 15px;
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
-}
-
-.hero p {
-  font-size: 1.3rem;
-  margin-bottom: 40px;
-  color: #ddd;
-  font-weight: 500;
-}
-
-/* Hero buttons */
-.hero-buttons {
+.hero-section {
   display: flex;
   justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
+  align-items: center;
+  height: 40vh;
+  background: #000; /* Or your chosen background */
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: #00ffff;
+  font-weight: bold;
+  animation: slideFade 6s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+  white-space: nowrap;
+}
+
+/* Slide-in and fade animation */
+@keyframes slideFade {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  25% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 }
 
 .btn, .btn-outline {
@@ -555,6 +572,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
