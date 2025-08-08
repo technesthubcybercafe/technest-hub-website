@@ -254,45 +254,30 @@ header {
   background-color: rgba(0, 255, 255, 0.1);
   color: #00ffff;
 }
-/* === Gallery Section === */
-.gallery {
-  padding: 60px 20px;
-  background-color: #121212;
-  text-align: center;
-}
-
-.gallery-section {
+.gallery-slider {
   overflow: hidden;
-  padding: 20px;
-  background: #f9f9f9;
-}
-
-.gallery-wrapper {
   width: 100%;
-  overflow: hidden;
-  position: relative;
+  padding: 10px 0;
+  background: #f8f8f8; /* Optional background */
 }
 
 .gallery-track {
-  display: flex;
-  gap: 20px;
-  animation: scrollGallery 20s linear infinite;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+  gap: 10px;
+  animation: slideGallery 20s linear infinite;
+  width: max-content;
 }
 
 .gallery-track img {
-  width: calc(50% - 10px); /* Two images per row with spacing */
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease-in-out;
+  border-radius: 6px;
+  object-fit: cover;
 }
 
-.gallery-track img:hover {
-  transform: scale(1.05);
-}
-
-@keyframes scrollGallery {
+/* Animation to slide gallery from right to left */
+@keyframes slideGallery {
   0% {
     transform: translateX(0);
   }
@@ -301,6 +286,12 @@ header {
   }
 }
 
+/* Responsive: adjust gaps or size on smaller screens if needed */
+@media screen and (max-width: 600px) {
+  .gallery-track {
+    gap: 8px;
+  }
+}
 
 #contact h2 {
   color: #00ffff;
@@ -531,6 +522,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
