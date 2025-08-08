@@ -94,32 +94,81 @@ header {
 
 /* Hero section */
 .hero {
-    padding: 60px 15px 80px;
-    max-width: 100%;
-    margin: 30px 0 40px;
-  }
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 80px 20px 100px;
+  background-color: rgba(0, 0, 0, 0.45);
+  max-width: 900px;
+  margin: 40px auto 60px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+}
 
-  .hero h2 {
-    font-size: 2rem;
-  }
+.hero h2 {
+  font-size: 3rem;
+  color: #00ffff;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
 
-  .hero p {
-    font-size: 1rem;
-    margin-bottom: 25px;
-  }
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  color: #ddd;
+  font-weight: 500;
+}
 
-  .hero-buttons {
-    flex-direction: column;
-    gap: 15px;
-  }
+/* Hero buttons */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
 
-  .btn,
-  .btn-outline {
-    width: 100%;
-    padding: 14px 0;
-    font-size: 1.1rem;
-    min-width: unset;
-  }
+.btn, .btn-outline {
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  user-select: none;
+  min-width: 140px;
+  text-align: center;
+  display: inline-block;
+  border: none;
+}
+
+.btn {
+  background-color: #00ffff;
+  color: #000;
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #00cccc;
+  box-shadow: 0 7px 20px rgba(0, 204, 204, 0.6);
+  outline: none;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  box-shadow: none;
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  background-color: #00ffff;
+  color: #000;
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+  outline: none;
+}
 
 /* Section styling */
 .section {
@@ -506,6 +555,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
