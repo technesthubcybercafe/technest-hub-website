@@ -265,19 +265,24 @@ header {
   margin: 0 auto;
 }
 
-.gallery-grid img {
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-  transition: transform 0.3s ease;
-  cursor: pointer;
+.gallery-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  scroll-behavior: smooth;
+  padding: 10px 0;
 }
 
-.gallery-grid img:hover,
-.gallery-grid img:focus {
+.gallery-carousel img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.gallery-carousel img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
-  outline: none;
 }
 
 /* Contact Form */
@@ -519,5 +524,6 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
