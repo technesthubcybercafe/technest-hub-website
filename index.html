@@ -144,40 +144,7 @@
   <footer>
     <p>© 2025 TechNest Hub Cybercafe | Powered by TechNest Team</p>
   </footer>
-<!-- FAQ Script -->
-  <script>
-    const faqs = [
-      { question: "What are your opening hours?", answer: "We are open from 8 AM to 8 PM, Monday to Saturday." },
-      { question: "Do you offer lamination services?", answer: "Yes, we laminate A4 and ID card sizes." },
-      { question: "How much does browsing cost?", answer: "₦1000 for 30 minutes with super-fast internet access." },
-      { question: "Can I print in color?", answer: "Yes, we offer both color and black & white printing." },
-      { question: "Where are you located?", answer: "NSUK Main Campus (FNAS), Keffi." }
-    ];
 
-    const faqList = document.getElementById("faqList");
-    const faqSearch = document.getElementById("faqSearch");
-
-    function displayFaqs(filteredFaqs) {
-      faqList.innerHTML = "";
-      filteredFaqs.forEach(faq => {
-        const item = document.createElement("div");
-        item.classList.add("faq-item");
-        item.innerHTML = `<h4>${faq.question}</h4><p>${faq.answer}</p>`;
-        faqList.appendChild(item);
-      });
-    }
-
-    faqSearch.addEventListener("input", () => {
-      const searchTerm = faqSearch.value.toLowerCase();
-      const filtered = faqs.filter(faq =>
-        faq.question.toLowerCase().includes(searchTerm) ||
-        faq.answer.toLowerCase().includes(searchTerm)
-      );
-      displayFaqs(filtered);
-    });
-
-    displayFaqs(faqs);
-  </script>
  https://studio.botpress.cloud/home?exploreHub=1&hubItemId=intver_01K1V29DZE3KSVWMP3XWXKHP96
     <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
 <script src="https://files.bpcontent.cloud/2025/08/07/10/20250807100845-06J8YQYD.js" defer></script>
@@ -185,6 +152,7 @@
 <script src="js/main.js"></script>
 </body>
 </html>
+
 
 
 
