@@ -257,39 +257,31 @@ header {
 .gallery-slider {
   overflow: hidden;
   width: 100%;
-  padding: 10px 0;
-  background: #f8f8f8; /* Optional background */
+  max-width: 100%;
+  padding: 20px;
 }
 
 .gallery-track {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
-  animation: slideGallery 20s linear infinite;
-  width: max-content;
+  animation: scrollGallery 20s linear infinite;
 }
 
 .gallery-track img {
   width: 100%;
   height: auto;
-  border-radius: 6px;
   object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s;
 }
 
-/* Animation to slide gallery from right to left */
-@keyframes slideGallery {
+@keyframes scrollGallery {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(-50%);
-  }
-}
-
-/* Responsive: adjust gaps or size on smaller screens if needed */
-@media screen and (max-width: 600px) {
-  .gallery-track {
-    gap: 8px;
   }
 }
 
@@ -522,6 +514,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
