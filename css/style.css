@@ -103,23 +103,33 @@ header {
   margin: 40px auto 60px;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  min-height: 320px; /* increased slightly for consistent height */
 }
 
-.hero h2 {
+/* Heading style */
+.hero h2,
+.typing-heading {
   font-size: 3rem;
   color: #00ffff;
   margin-bottom: 15px;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+  min-height: 3.2rem; /* reserve vertical space so layout doesn't jump */
+  font-weight: 900;
 }
 
-.hero p {
+/* Paragraph style */
+.hero p,
+.typing-paragraph {
   font-size: 1.3rem;
   margin-bottom: 40px;
   color: #ddd;
   font-weight: 500;
+  line-height: 1.6;
+  min-height: 6.4rem; /* reserve vertical space */
+  white-space: pre-line; /* support multi-line */
 }
 
-/* Hero buttons */
+/* Hero buttons container */
 .hero-buttons {
   display: flex;
   justify-content: center;
@@ -127,6 +137,7 @@ header {
   flex-wrap: wrap;
 }
 
+/* Buttons styling */
 .btn, .btn-outline {
   padding: 14px 32px;
   font-size: 1.1rem;
@@ -168,6 +179,15 @@ header {
   color: #000;
   box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
   outline: none;
+}
+
+/* Slides */
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
 }
 
 /* Section styling */
@@ -555,6 +575,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
