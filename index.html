@@ -238,8 +238,66 @@ Your satisfaction is our top priority every time.
     moveGallery(1);
   }, 4000); // change every 4 seconds
 </script>
+<script>
+  const slides = document.querySelectorAll('#hero .slide');
+  let current = 0;
+
+  const slideData = Array.from(slides).map(slide => {
+    const headingEl = slide.querySelector('.typing-heading');
+    const paraEl = slide.querySelector('.typing-paragraph');
+    const headingText = headingEl.textContent.trim();
+    const paraText = paraEl.textContent.trim();
+    return { headingEl, paraEl, headingText, paraText };
+  });
+
+  function typeText(element, text, delay = 50) {
+    return new Promise(resolve => {
+      let i = 0;
+      element.textContent = '';
+      function typing() {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+          setTimeout(typing, delay);
+        } else {
+          resolve();
+        }
+      }
+      typing();
+    });
+  }
+
+  async function showSlideWithTyping(index) {
+    slides.forEach((slide, i) => {
+      slide.style.display = i === index ? 'block' : 'none';
+    });
+
+    const { headingEl, paraEl, headingText, paraText } = slideData[index];
+
+    await typeText(headingEl, headingText, 50);
+    await typeText(paraEl, paraText, 20);
+
+    // Pause 3 seconds fully typed
+    await new Promise(r => setTimeout(r, 3000));
+
+    // Hide entire slide content instantly (disappear)
+    headingEl.textContent = '';
+    paraEl.textContent = '';
+  }
+
+  async function cycleSlides() {
+    while (true) {
+      await showSlideWithTyping(current);
+      current = (current + 1) % slides.length;
+    }
+  }
+
+  cycleSlides();
+</script>
+
 </body>
 </html>
+
 
 
 
