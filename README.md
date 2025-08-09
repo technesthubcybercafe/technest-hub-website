@@ -21,6 +21,6 @@ https://technesthubcybercafe.github.io/technest-hub-website/
 - Contact form (EmailJS integration)  
 - Clickable service cards redirecting to contact page with service pre-filled  
 
-## 📞 Contact
-📧 Email: technesthubcybercafe@gmail.com  
+## 📞 Contact: 08082848183
+📧 Email: codewithengrchris@gmail.com  
 📍 Location: Keffi, Nasarawa State, Nigeria
