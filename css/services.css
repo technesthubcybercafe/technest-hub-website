@@ -106,9 +106,11 @@ header {
 
 .services h2 {
   font-size: 36px;
-  color: #0ff;
+
+font-size: 2.2rem;
+  color: #18e9f8ff;
   margin-bottom: 40px;
-  text-shadow: 0 0 10px #0ff, 0 0 15px #0ff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
   animation: glow 2s ease-in-out infinite alternate;
 }
 
@@ -166,4 +168,5 @@ footer p {
   color: #888;
   font-size: 14px;
 }
+
 
