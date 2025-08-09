@@ -346,42 +346,63 @@ header {
     height: 120px;
   }
 }
+/* Contact Section */
+#contact {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 50px 20px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  z-index: 5; /* Make sure it's above any background */
+}
+
 #contact h2 {
   color: #00ffff;
   font-size: 2rem;
   margin-bottom: 30px;
 }
 
-.contact-form {
+/* Form layout */
+#contact form {
   max-width: 500px;
   margin: 0 auto 30px;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  position: relative;   /* Added */
-  z-index: 1;           /* Added */
+  position: relative;
+  z-index: 10; /* Ensure form fields are clickable */
+  pointer-events: auto; /* Allow clicking and typing */
 }
 
-.contact-form input,
-.contact-form textarea {
+#contact label {
+  text-align: left;
+  font-weight: 600;
+  color: #ccc;
+}
+
+#contact input,
+#contact textarea {
   padding: 12px 15px;
   border: none;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.15);
   color: #fff;
   font-size: 1rem;
+  width: 100%;
   resize: vertical;
   transition: box-shadow 0.3s ease;
+  pointer-events: auto; /* Make inputs interactive */
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
+#contact input:focus,
+#contact textarea:focus {
   outline: none;
   box-shadow: 0 0 8px #00ffff;
   background: rgba(0, 255, 255, 0.2);
 }
 
-.contact-form button {
+/* Button */
+#contact button {
   padding: 15px;
   border: none;
   border-radius: 10px;
@@ -393,10 +414,11 @@ header {
   transition: background-color 0.3s ease;
 }
 
-.contact-form button:hover {
+#contact button:hover {
   background-color: #00cccc;
 }
 
+/* Contact Info */
 .contact-info {
   font-size: 1rem;
   color: #ccc;
@@ -404,6 +426,13 @@ header {
   margin: 0 auto;
 }
 
+/* Status Message */
+#form-status {
+  margin-top: 10px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
 /* Footer */
 footer {
   background-color: rgba(0, 0, 0, 0.75);
@@ -575,6 +604,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
