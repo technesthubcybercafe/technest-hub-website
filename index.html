@@ -187,22 +187,30 @@ Your satisfaction is our top priority every time.
     <button class="gallery-nav next" onclick="moveGallery(1)">❯</button>
   </div>
 </section>
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <h2>Contact Us</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <input type="text" placeholder="Subject" required>
-      <textarea placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <div class="contact-info">
-      <p><strong>Phone:</strong> 08082848183</p>
-      <p><strong>Location:</strong> NSUK Main Campus (FNAS) Keffi</p>
-      <p><strong>Email:</strong> codewithengrchris@gmail.com</p>
-    </div>
-  </section>
+ <!-- Contact Section -->
+<section id="contact" class="section">
+  <h2>Contact Us</h2>
+
+  <form id="contact-form" action="https://formspree.io/f/myzpleqo" method="POST">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" required />
+
+    <label for="email">Email</label>
+    <input type="email" name="_replyto" id="email" required />
+
+    <label for="message">Message</label>
+    <textarea name="message" id="message" rows="5" required></textarea>
+
+    <button type="submit">Send</button>
+    <p id="form-status"></p>
+  </form>
+
+  <div class="contact-info">
+    <p><strong>Phone:</strong> 08082848183</p>
+    <p><strong>Location:</strong> NSUK Main Campus (FNAS) Keffi</p>
+    <p><strong>Email:</strong> codewithengrchris@gmail.com</p>
+  </div>
+</section>
 
   <!-- Footer -->
   <footer>
@@ -297,6 +305,7 @@ Your satisfaction is our top priority every time.
 
 </body>
 </html>
+
 
 
 
