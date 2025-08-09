@@ -302,9 +302,61 @@ Your satisfaction is our top priority every time.
 
   cycleSlides();
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("#contact form");
+  const status = document.createElement("div");
+  status.id = "form-status";
+  form.appendChild(status);
+
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    status.style.opacity = 0; // hide before showing new message
+
+    const data = new FormData(form);
+    const submitButton = form.querySelector("button");
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        form.reset();
+        status.textContent = "Message sent successfully! ✅";
+        status.style.color = "#00ffcc";
+      } else {
+        status.textContent = "Oops! Something went wrong. ❌";
+        status.style.color = "#ff4d4d";
+      }
+    } catch (error) {
+      status.textContent = "Network error. Please try again. ⚠️";
+      status.style.color = "#ffcc00";
+    }
+
+    // Fade in message
+    requestAnimationFrame(() => {
+      status.style.opacity = 1;
+    });
+
+    // Remove message after 4 seconds
+    setTimeout(() => {
+      status.style.opacity = 0;
+    }, 4000);
+
+    submitButton.disabled = false;
+    submitButton.textContent = "Send";
+  });
+});
+</script>
 
 </body>
 </html>
+
 
 
 
