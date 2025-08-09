@@ -22,48 +22,84 @@
       <a href="contact.html" class="active">Contact</a>
     </nav>
   </header>
-
   <div class="contact-section">
     <h2>Contact Us</h2>
     <p>If you have any questions, inquiries, or need assistance, feel free to reach out.</p>
 
     <div class="contact-info">
-      <div class="info-item">
-        <h4>Our Address</h4>
-        <p>NSUK Main Campus (FNAS) Keffi, Nasarawa State</p>
-      </div>
-      <div class="info-item">
-        <h4>Phone</h4>
-        <p>08082848183</p>
-      </div>
-      <div class="info-item">
-        <h4>Email</h4>
-        <p>codewithengrchris@gmail.com</p>
-      </div>
-      <div class="info-item">
-        <h4>Working Hours</h4>
-        <p>Monday - Saturday: 8:00 AM - 6:00 PM<br>Sunday: Closed</p>
-      </div>
+        <div class="info-item">
+            <h4>Our Address</h4>
+            <p>NSUK Main Campus (FNAS) Keffi, Nasarawa State</p>
+        </div>
+        <div class="info-item">
+            <h4>Phone</h4>
+            <p>08082848183</p>
+        </div>
+        <div class="info-item">
+            <h4>Email</h4>
+            <p>codewithengrchris@gmail.com</p>
+        </div>
+        <div class="info-item">
+            <h4>Working Hours</h4>
+            <p>Monday - Saturday: 8:00 AM - 6:00 PM<br>Sunday: Closed</p>
+        </div>
     </div>
 
-   <form class="contact-form">
+    <form class="contact-form" action="https://formspree.io/f/myzpleqo" method="POST">
   <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
+  <input type="email" name="_replyto" placeholder="Your Email" required>
   <input type="text" name="title" placeholder="Subject" required>
   <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+  
+  <!-- Optional hidden field for time -->
   <input type="hidden" name="time" value="">
+
   <button type="submit">Send Message</button>
 </form>
-
-  </div>
 
   <footer>
     <p>&copy; 2025 TechNest Hub Cybercafe. All rights reserved.</p>
   </footer>
 
-  <!-- EmailJS SDK & Main Script -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script src="js/main.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".contact-form");
+  const status = document.createElement("div");
+  status.className = "form-status";
+  form.appendChild(status);
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    status.textContent = "Sending...";
+    status.style.color = "#0ff";
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/myzpleqo", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        status.textContent = "✅ Message sent successfully!";
+        status.style.color = "lightgreen";
+        form.reset();
+      } else {
+        status.textContent = "❌ Failed to send. Please try again.";
+        status.style.color = "red";
+      }
+    } catch (error) {
+      status.textContent = "⚠ Error sending message. Check your connection.";
+      status.style.color = "orange";
+    }
+  });
+});
+</script>
+
 </body>
 </html>
 
