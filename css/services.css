@@ -67,6 +67,7 @@ body::before {
   inset: 0;
   background-color: rgba(0, 0, 0, 0.35);
   z-index: 0;
+  pointer-events: none; /* Allow clicks and selection through overlay */
 }
 
 /* Header styling */
@@ -249,4 +250,5 @@ footer a:focus {
     grid-template-columns: 1fr;
   }
 } 
+
 
