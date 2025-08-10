@@ -9,19 +9,12 @@
   left: 0;
   z-index: 9999;
   font-weight: 900;
-  font-size: 1.4rem;
+  font-size: 1.4rem;  /* Slightly smaller than before */
   text-transform: uppercase;
   color: transparent;
-  background: linear-gradient(
-    90deg,
-    #4a90e2,    /* Soft professional blue */
-    #3b5998,    /* Deep slate blue */
-    #2c3e50,    /* Dark slate */
-    #4a90e2     /* Loop back to blue */
-  );
+  background: linear-gradient(90deg, #00ffff, #00ccff, #0099cc, #00ffff);
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* for Safari */
   animation: marqueeMove 15s linear infinite;
   white-space: nowrap;
   user-select: none;
@@ -638,6 +631,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
