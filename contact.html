@@ -98,11 +98,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
- <script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="LgdSDKj3OZKWz3UlxrNvl";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+<script SameSite="None; Secure"  type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
+<div id="myLandbot" style="width: 100%; height: px"></div>
+<script type="module">
+  var myLandbot = new Landbot.Container({
+    container: '#myLandbot',
+    configUrl: 'https://storage.googleapis.com/landbot.site/v3/H-3087797-URMJTSWLRB14H2X7/index.json',
+  });
 </script>
 </body>
 </html>
+
 
 
 
