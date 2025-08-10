@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="google-adsense-account" content="ca-pub-9492203434817185">
+  <meta name="google-adsense-account" content="ca-pub-9492203434817185">
   <title>Contact Us - TechNest Hub Cybercafe</title>
   <link rel="stylesheet" href="css/contact.css">
 </head>
@@ -11,44 +11,52 @@
 <div class="top-marquee">
   <strong>Register Your Business With CAC Today — Fast, Trusted, and Affordable Registration Services At TechNest Hub Cybercafe!</strong>
 </div>
-  <header>
-    <div class="header-container">
-      <img src="image/logo.png" alt="TechNest Logo" class="logo">
-      <div class="branding">
-        <h1>TechNest Hub Cybercafe</h1>
-        <p>Your Digital Gateway – Fast, Reliable, Professional</p>
-      </div>
-    </div>
-    <nav class="navbar">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
-  </header>
-  <div class="contact-section">
-    <h2>Contact Us</h2>
-    <p>If you have any questions, inquiries, or need assistance, feel free to reach out.</p>
-    
-    <div class="contact-info">
-        <div class="info-item">
-            <h4>Working Hours</h4>
-            <p>Monday - Saturday: 8:00 AM - 6:00 PM<br>Sunday: Closed</p>
-        </div>
-    </div>
 
-    <form class="contact-form" action="https://formspree.io/f/myzpleqo" method="POST">
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="_replyto" placeholder="Your Email" required>
-  <input type="text" name="title" placeholder="Subject" required>
-  <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+<header>
+  <div class="header-container">
+    <img src="image/logo.png" alt="TechNest Logo" class="logo">
+    <div class="branding">
+      <h1>TechNest Hub Cybercafe</h1>
+      <p>Your Digital Gateway – Fast, Reliable, Professional</p>
+    </div>
+  </div>
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+</header>
+
+<div class="contact-section">
+  <h2>Contact Us</h2>
+  <p>If you have any questions, inquiries, or need assistance, feel free to reach out.</p>
   
-  <!-- Optional hidden field for time -->
-  <input type="hidden" name="time" value="">
+  <div class="contact-info">
+    <div class="info-item">
+      <h4>Working Hours</h4>
+      <p>Monday - Saturday: 8:00 AM - 6:00 PM<br>Sunday: Closed</p>
+    </div>
+  </div>
 
-  <button type="submit">Send Message</button>
-</form>
+  <form class="contact-form" action="https://formspree.io/f/myzpleqo" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="_replyto" placeholder="Your Email" required>
+    <input type="text" name="title" placeholder="Subject" required>
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <input type="hidden" name="time" value="">
+    <button type="submit">Send Message</button>
+  </form>
+</div>
 
-  <footer>
+<!-- Floating Landbot Chat -->
+<script type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
+<script type="module">
+  new Landbot.Livechat({
+    configUrl: 'https://storage.googleapis.com/landbot.site/v3/H-3087797-URMJTSWLRB14H2X7/index.json'
+  });
+</script>
+
+<footer>
   <div class="footer-contact">
     <p>Contact us: <a href="mailto:codewithengrchris@gmail.com">codewithengrchris@gmail.com</a> | Phone: 08082848183</p>
     <p>Follow us: 
@@ -60,8 +68,8 @@
   </div>
 </footer>
 
-  <script src="js/main.js"></script>
-  <script>
+<script src="js/main.js"></script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".contact-form");
   const status = document.createElement("div");
@@ -70,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
-
     status.textContent = "Sending...";
     status.style.color = "#0ff";
 
@@ -95,20 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
       status.textContent = "⚠ Error sending message. Check your connection.";
       status.style.color = "orange";
     }
-<!-- Floating Landbot Chat (appears on all pages) -->
-<script type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
-<script type="module">
-  new Landbot.Livechat({
-    configUrl: 'https://storage.googleapis.com/landbot.site/v3/H-3087797-URMJTSWLRB14H2X7/index.json'
   });
+});
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
