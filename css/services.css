@@ -9,7 +9,7 @@
   color: #000;
   font-weight: 900;
   font-size: 2.4rem;
-  text-transform: uppercase;
+  text-transform: auto;
   padding: 15px 0;
   overflow: hidden;
   white-space: nowrap;
@@ -147,9 +147,7 @@ header {
 }
 
 .services h2 {
-  font-size: 36px;
-
-font-size: 2.2rem;
+  font-size: 2.2rem;
   color: #18e9f8ff;
   margin-bottom: 40px;
   text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
@@ -178,11 +176,17 @@ font-size: 2.2rem;
   border: 1px solid #0ff;
   box-shadow: 0 0 6px rgba(0, 255, 255, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;             /* show pointer on hover */
+  user-select: none;           /* prevent accidental text selection */
+  touch-action: manipulation; /* improve mobile touch responsiveness */
+  outline: none;               /* remove default focus outline */
 }
 
-.service-item:hover {
+.service-item:hover,
+.service-item:focus {
   transform: translateY(-5px);
   box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  outline: none; /* keep no outline */
 }
 
 .service-item h3 {
@@ -195,6 +199,12 @@ font-size: 2.2rem;
 .service-item p {
   font-size: 14px;
   color: #ddd;
+}
+
+/* Make service-item focusable for keyboard navigation */
+.service-item:focus-visible {
+  outline: 2px solid #00ffff;
+  outline-offset: 3px;
 }
 
 /* Footer */
@@ -230,7 +240,9 @@ footer a:focus {
   line-height: 1.5;
 }
 
-
-
-
-
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+}
