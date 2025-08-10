@@ -5,18 +5,18 @@
   top: 0;
   left: 100%;
   width: 100%;
-  background-color: #00cccc;
-  color: #fff; /* White text */
-  font-size: 1.2rem;
+  background-color: transparent; /* No background */
+  color: #ffffff; /* White text */
+  font-size: 1.1rem; /* Slightly smaller but clear */
   font-weight: 700;
   text-transform: uppercase;
-  padding: 10px 0;
+  padding: 12px 0;
   white-space: nowrap;
   z-index: 9999;
   animation: marquee-scroll 15s linear infinite;
   text-shadow:
-    2px 2px 4px rgba(0, 0, 0, 0.7),
-    0 0 8px rgba(255, 255, 255, 0.9);
+    1.5px 1.5px 3px rgba(0, 0, 0, 0.7),
+    0 0 6px rgba(255, 255, 255, 0.8);
 }
 
 /* Marquee Animation */
@@ -631,6 +631,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
