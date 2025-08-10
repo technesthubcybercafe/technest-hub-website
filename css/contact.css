@@ -134,94 +134,51 @@ header {
   outline: none;
 }
 
-/* ================================
-   CONTACT SECTION
-=================================== */
-.contact-section {
-  max-width: 700px;
-  margin: 40px auto 80px;
-  background: rgba(0, 0, 0, 0.75);
-  padding: 40px 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+/* Contact Section */
+#contact {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 50px 20px;
+  color: #fff;
   text-align: center;
-  color: #ddd;
-}
-
-.contact-section h2 {
-  font-size: 2.6rem;
-  color: #00ffff;
-  margin-bottom: 20px;
-  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
-}
-
-.contact-section p {
-  font-size: 1.1rem;
-  margin-bottom: 35px;
-  color: #bbb;
-  line-height: 1.5;
-}
-
-/* Contact info boxes */
-.contact-info {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
-.info-item {
-  flex: 1 1 220px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 20px 25px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
-  transition: background-color 0.3s ease;
-}
-
-.info-item:hover {
-  background-color: rgba(0, 255, 255, 0.1);
-}
-
-.info-item h4 {
-  color: #00ffff;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  text-shadow: 0 0 6px #00ffff;
-}
-
-.info-item p {
-  font-size: 0.95rem;
-  color: #ccc;
-  word-wrap: break-word;
-}
-
-/* ================================
-   CONTACT FORM
-=================================== */
-.contact-form {
   position: relative;
-  z-index: 10000; /* Higher than marquee */
-  max-width: 500px;
-  margin: 0 auto;
+  z-index: 5; /* Above background overlay */
+  max-width: 700px;
+  margin: 0 auto 60px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+
+#contact h2 {
+  color: #00ffff;
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+/* Form layout */
+#contact form {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10; /* Above other elements */
+  pointer-events: auto; /* Make sure inputs are interactive */
 }
-.contact-form label {
-  text-align: left;
+
+#contact label {
   font-weight: 600;
   color: #00ffff;
   font-size: 1rem;
-  margin-bottom: 6px;
-  display: block;
+  text-align: left;
   text-shadow: 0 0 4px #00ffff;
 }
 
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
+#contact input,
+#contact textarea {
   padding: 14px 18px;
   font-size: 1rem;
   border: none;
@@ -229,25 +186,26 @@ header {
   background: rgba(255, 255, 255, 0.12);
   color: #fff;
   resize: vertical;
+  box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.25);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.2);
+  width: 100%;
 }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
+#contact input::placeholder,
+#contact textarea::placeholder {
   color: #aaa;
   font-style: italic;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
+#contact input:focus,
+#contact textarea:focus {
   outline: none;
   background-color: rgba(0, 255, 255, 0.2);
-  box-shadow: 0 0 10px #00ffff;
+  box-shadow: 0 0 12px #00ffff;
 }
 
 /* Submit Button */
-.contact-form button {
+#contact button {
   background-color: #00ffff;
   color: #000;
   padding: 16px;
@@ -258,16 +216,17 @@ header {
   cursor: pointer;
   box-shadow: 0 0 15px #00ffff;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
 }
 
-.contact-form button:hover,
-.contact-form button:focus {
+#contact button:hover,
+#contact button:focus {
   background-color: #00cccc;
   box-shadow: 0 0 25px #00cccc;
   outline: none;
 }
 
-/* Status message below form */
+/* Status Message */
 #form-status {
   margin-top: 12px;
   font-size: 1rem;
@@ -275,27 +234,44 @@ header {
   color: #00ffff;
   text-shadow: 0 0 6px #00ffff;
   transition: opacity 0.3s ease;
+  opacity: 0;
 }
 
-/* ================================
-   RESPONSIVE
-=================================== */
+/* Responsive */
 @media (max-width: 768px) {
-  .contact-info {
-    flex-direction: column;
-    gap: 20px;
+  #contact {
+    padding: 40px 15px;
+    max-width: 100%;
   }
 
-  .contact-section {
-    margin: 20px 15px 60px;
-    padding: 30px 20px;
+  #contact h2 {
+    font-size: 2rem;
   }
 
-  .contact-form button {
+  #contact form {
+    max-width: 100%;
+  }
+
+  #contact button {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #contact label {
+    font-size: 0.9rem;
+  }
+
+  #contact input,
+  #contact textarea {
+    font-size: 0.95rem;
+  }
+
+  #contact button {
+    padding: 14px;
     font-size: 1rem;
   }
 }
-
 /* ================================
    FOOTER (optional)
 =================================== */
@@ -330,5 +306,6 @@ footer a:focus {
   margin: 6px 0;
   line-height: 1.5;
 }
+
 
 
