@@ -9,7 +9,7 @@
   color: #000;
   font-weight: 900;
   font-size: 2.4rem;
-  text-transform: uppercase;
+  text-transform: auto;
   padding: 15px 0;
   overflow: hidden;
   white-space: nowrap;
@@ -658,6 +658,7 @@ footer a:focus {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
