@@ -1,4 +1,5 @@
 /* Reset default styles */
+/* CAC Registration Top Marquee */
 .top-marquee {
   position: fixed;
   top: 0;
@@ -16,17 +17,30 @@
   z-index: 9999;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 3px;
-  /* Remove pointer-events:none; */
+  /* Ensure the marquee bar stays on top but does not cover header */
+  pointer-events: none; /* optional: prevent blocking clicks */
 }
 
 .top-marquee strong {
   display: inline-block;
   padding-left: 100%;
   animation: marquee 20s linear infinite;
-  pointer-events: auto; /* optional */
+  pointer-events: auto; /* allow text selection/clicks */
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
+/* Add padding-top to body to push content down so it is not hidden by fixed marquee */
+body {
+  padding-top: 65px; /* Adjust to match marquee height */
+}
 * {
   margin: 0;
   padding: 0;
@@ -187,13 +201,14 @@ header {
    CONTACT FORM
 =================================== */
 .contact-form {
+  position: relative;
+  z-index: 10000; /* Higher than marquee */
   max-width: 500px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
-
 .contact-form label {
   text-align: left;
   font-weight: 600;
@@ -315,4 +330,5 @@ footer a:focus {
   margin: 6px 0;
   line-height: 1.5;
 }
+
 
