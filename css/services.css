@@ -149,36 +149,10 @@ header {
 .services h2 {
   font-size: 2.2rem;
   color: #00ffff;
+  font-weight: 700;
   margin-bottom: 40px;
-  text-shadow:
-    0 0 10px #00ffff,
-    0 0 20px #00ffff,
-    0 0 30px #00ffff,
-    0 0 40px #0ff,
-    0 0 60px #0ff,
-    0 0 80px #0ff;
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    text-shadow:
-      0 0 10px #00ffff,
-      0 0 20px #00ffff,
-      0 0 30px #00ffff,
-      0 0 40px #0ff,
-      0 0 60px #0ff,
-      0 0 80px #0ff;
-  }
-  to {
-    text-shadow:
-      0 0 20px #00ffff,
-      0 0 30px #00ffff,
-      0 0 40px #00ffff,
-      0 0 50px #0ff,
-      0 0 70px #0ff,
-      0 0 100px #0ff;
-  }
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+  animation: none;
 }
 
 .service-grid {
@@ -265,6 +239,7 @@ footer a:focus {
     grid-template-columns: 1fr;
   }
 } 
+
 
 
 
