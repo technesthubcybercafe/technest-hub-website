@@ -17,8 +17,7 @@
   z-index: 9999;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 3px;
-  /* Ensure the marquee bar stays on top but does not cover header */
-  pointer-events: none; /* optional: prevent blocking clicks */
+  pointer-events: none; /* prevent blocking clicks */
 }
 
 .top-marquee strong {
@@ -37,7 +36,7 @@
   }
 }
 
-/* Add padding-top to body to push content down so it is not hidden by fixed marquee */
+
 body {
   padding-top: 65px; /* Adjust to match marquee height */
 }
@@ -180,13 +179,15 @@ header {
   user-select: none;           /* prevent accidental text selection */
   touch-action: manipulation; /* improve mobile touch responsiveness */
   outline: none;               /* remove default focus outline */
+  position: relative;          /* ensure it’s above overlays */
+  z-index: 1;
 }
 
 .service-item:hover,
 .service-item:focus {
   transform: translateY(-5px);
   box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-  outline: none; /* keep no outline */
+  outline: none; 
 }
 
 .service-item h3 {
@@ -201,7 +202,6 @@ header {
   color: #ddd;
 }
 
-/* Make service-item focusable for keyboard navigation */
 .service-item:focus-visible {
   outline: 2px solid #00ffff;
   outline-offset: 3px;
@@ -245,4 +245,4 @@ footer a:focus {
   .service-grid {
     grid-template-columns: 1fr;
   }
-}
+} 
