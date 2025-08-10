@@ -246,34 +246,31 @@ header {
   color: #ddd;
 }
 
-.why-list {
-  list-style: none;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 0;
-  font-size: 1.2rem;
-  color: #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
-  background-color: rgba(0, 0, 0, 0.25);
-}
-
 .why-list li {
-  padding: 15px 20px;
+  position: relative;
+  padding-left: 30px; /* space for the icon */
+  padding-top: 15px;
+  padding-bottom: 15px;
   border-bottom: 1px solid rgba(0, 255, 255, 0.2);
   transition: background-color 0.3s ease, color 0.3s ease;
   cursor: default;
+  color: #ddd;
 }
 
-.why-list li:last-child {
-  border-bottom: none;
+.why-list li i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #00ffff;
+  font-size: 18px;
 }
 
 .why-list li:hover {
   background-color: rgba(0, 255, 255, 0.1);
   color: #00ffff;
 }
+
 
 .gallery-title {
   font-size: 2.4rem;
@@ -605,6 +602,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
