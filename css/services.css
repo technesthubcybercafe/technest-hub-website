@@ -146,13 +146,16 @@ header {
 }
 
 .services h2 {
-  font-size: 2.2rem;
-  color: #18e9f8ff;
-  margin-bottom: 40px;
-  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
-  animation: glow 2s ease-in-out infinite alternate;
+  font-size: 2.2rem;             
+  color: #00ffff;               
+  font-weight: 700;              
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6); 
+  user-select: text;            
+  margin-bottom: 40px;         
+  cursor: default;              
+  animation: none !important;  
 }
-
+  
 @keyframes glow {
   from {
     text-shadow: 0 0 6px #0ff, 0 0 10px #0ff;
@@ -246,3 +249,4 @@ footer a:focus {
     grid-template-columns: 1fr;
   }
 } 
+
