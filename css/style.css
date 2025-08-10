@@ -21,10 +21,10 @@
   );
   background-clip: text;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* for Safari */
   animation: marqueeMove 15s linear infinite;
   white-space: nowrap;
   user-select: none;
-  -webkit-text-fill-color: transparent; /* for Safari */
 }
 
 @keyframes marqueeMove {
@@ -35,6 +35,7 @@
     transform: translateX(-100%);
   }
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -637,6 +638,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
