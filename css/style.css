@@ -6,7 +6,7 @@
   left: 100%;
   width: 100%;
   background-color: #00cccc;
-  color: #000;
+  color: #fff; /* White text */
   font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -15,8 +15,8 @@
   z-index: 9999;
   animation: marquee-scroll 15s linear infinite;
   text-shadow:
-    2px 2px 4px rgba(0, 0, 0, 0.5),
-    0 0 8px rgba(255, 255, 255, 0.7);
+    2px 2px 4px rgba(0, 0, 0, 0.7),
+    0 0 8px rgba(255, 255, 255, 0.9);
 }
 
 /* Marquee Animation */
@@ -28,6 +28,7 @@
     left: -100%;
   }
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -630,6 +631,7 @@ footer {
   flex: 1;
   min-width: 250px;
 }
+
 
 
 
