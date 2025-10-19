@@ -23,77 +23,79 @@
     <nav class="navbar">
       <a href="#about">About</a>
       <a href="services.html">Services</a>
-      <a href="#why-choose-us">Why Choose Us</a>
       <a href="#gallery">Gallery</a>
       <a href="contact.html">Contact</a>
+      <a href="book.html">Book a Session</a>
     </nav>
   </header>
-  
+ <!-- Hero Section -->
   <section class="hero" id="hero">
-  <div class="slide active">
-    <h2 class="typing-heading">Welcome to TechNest Hub Cybercafe</h2>
-    <p class="typing-paragraph">
+    <div class="slide active">
+      <h2 class="typing-heading">Welcome to TechNest Hub Cybercafe</h2>
+      <p class="typing-paragraph">
 Where connection meets comfort, and every click opens a world of possibilities.
 Fast, reliable service tailored for you.
 Experience technology made simple and accessible.
 Your digital journey starts right here.
-    </p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn">Get Started</a>
+      </p>
+      <div class="hero-buttons">
+        <a href="book.html" class="btn">Get Started</a>
+      </div>
     </div>
-  </div>
 
-  <div class="slide">
-    <h2 class="typing-heading">Your Gateway to Seamless Connectivity</h2>
-    <p class="typing-paragraph">
+    <div class="slide">
+      <h2 class="typing-heading">Your Gateway to Seamless Connectivity</h2>
+      <p class="typing-paragraph">
 Unlock endless opportunities with high-speed internet.
 We bring the world closer to you, one connection at a time.
 Whether for work or play, trust in our steady, fast service.
 Your digital freedom, uninterrupted.
-    </p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn">Get Started</a>
+      </p>
+      <div class="hero-buttons">
+        <a href="book.html" class="btn">Get Started</a>
+      </div>
     </div>
-  </div>
 
-  <div class="slide">
-    <h2 class="typing-heading">Empowering Your Digital Journey</h2>
-    <p class="typing-paragraph">
+    <div class="slide">
+      <h2 class="typing-heading">Empowering Your Digital Journey</h2>
+      <p class="typing-paragraph">
 From browsing to printing, we provide tools that empower you.
 Quality services designed with your needs in mind.
 Step into a space where technology meets convenience.
 Let us help you succeed in your digital goals.
-    </p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn">Get Started</a>
+      </p>
+      <div class="hero-buttons">
+        <a href="book.html" class="btn">Get Started</a>
+      </div>
     </div>
-  </div>
-  <div class="slide">
-    <h2 class="typing-heading">Where Technology Meets Comfort</h2>
-    <p class="typing-paragraph">
+
+    <div class="slide">
+      <h2 class="typing-heading">Where Technology Meets Comfort</h2>
+      <p class="typing-paragraph">
 A cozy space designed for productivity and creativity.
 Enjoy modern amenities while you connect and create.
 Because comfort and technology should go hand in hand.
 Your perfect spot for work or leisure awaits.
-    </p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn">Get Started</a>
+      </p>
+      <div class="hero-buttons">
+        <a href="book.html" class="btn">Get Started</a>
+      </div>
     </div>
-  </div>
 
-  <div class="slide">
-    <h2 class="typing-heading">Affordable Services, Unmatched Quality</h2>
-    <p class="typing-paragraph">
+    <div class="slide">
+      <h2 class="typing-heading">Affordable Services, Unmatched Quality</h2>
+      <p class="typing-paragraph">
 Premium digital services without the premium price.
 Quality you can trust, prices you’ll love.
 Helping you achieve more, affordably and efficiently.
 Your satisfaction is our top priority every time.
-    </p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn">Get Started</a>
+      </p>
+      <div class="hero-buttons">
+        <a href="book.html" class="btn">Get Started</a>
+      </div>
     </div>
+  </section>
   </div>
-</section>
 <!-- About Us Section -->
 <section id="about" class="section">
 <h2>About Us</h2>
@@ -341,6 +343,9 @@ Your satisfaction is our top priority every time.
 
   cycleSlides();
 </script>
+<!-- Back to Top Button -->
+<button id="backToTop" title="Go to top">↑</button>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("#contact form");
@@ -392,12 +397,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
-<!-- Floating Landbot Chat -->
-<script type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
-<script type="module">
-  new Landbot.Livechat({
-    configUrl: 'https://storage.googleapis.com/landbot.site/v3/H-3087797-URMJTSWLRB14H2X7/index.json'
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const backToTop = document.getElementById("backToTop");
+
+  backToTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
+});
 </script>
 </body>
 </html>
