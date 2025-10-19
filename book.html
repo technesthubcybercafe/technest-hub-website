@@ -29,7 +29,7 @@
   <!-- Booking Section -->
   <section id="booking" class="section">
     <h2>Book a Service</h2>
-    <form id="booking-form">
+    <form id="booking-form" enctype="multipart/form-data">
       <label for="service">Select Service</label>
       <select id="service" name="service" required>
         <option value="">-- Choose a Service --</option>
@@ -58,7 +58,7 @@
         <label for="cac-service">Select CAC Type</label>
         <select id="cac-service" name="cac-service">
           <option value="">-- Choose CAC Service --</option>
-          <option value="Business Name" data-price="35000">Business Name Registration – ₦45,000</option>
+          <option value="Business Name" data-price="45000">Business Name Registration – ₦45,000</option>
           <option value="Company" data-price="80000">Company Registration – ₦80,000</option>
           <option value="NGO" data-price="170000">NGO Registration – ₦170,000</option>
         </select>
@@ -88,6 +88,11 @@
       <label for="message">Message / Additional Details</label>
       <textarea id="message" name="message" placeholder="Enter any additional details here..."></textarea>
 
+      <!-- ✅ Credential Upload -->
+      <label for="credentials">Upload Credentials (optional)</label>
+      <input type="file" id="credentials" name="credentials" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx" />
+      <small id="file-info" style="color: gray; display: block; margin-top: 5px;"></small>
+
       <button type="button" id="payButton">Proceed to Payment</button>
     </form>
   </section>
@@ -105,89 +110,124 @@
     </div>
   </footer>
 
-  <script>
-    const serviceSelect = document.getElementById("service");
-    const cacOptions = document.getElementById("cac-options");
-    const otherOptions = document.getElementById("other-options");
-    const cacServiceSelect = document.getElementById("cac-service");
+    <script>
+  const serviceSelect = document.getElementById("service");
+  const cacOptions = document.getElementById("cac-options");
+  const otherOptions = document.getElementById("other-options");
+  const cacServiceSelect = document.getElementById("cac-service");
+  const fileInput = document.getElementById("credentials");
+  const fileInfo = document.getElementById("file-info");
 
-    // Show/hide extra options
-    serviceSelect.addEventListener("change", function() {
-      if (this.value === "CAC Registration") {
-        cacOptions.style.display = "block";
-        otherOptions.style.display = "none";
-      } else if (this.value === "Other") {
-        otherOptions.style.display = "block";
-        cacOptions.style.display = "none";
-      } else {
-        cacOptions.style.display = "none";
-        otherOptions.style.display = "none";
-        cacServiceSelect.value = "";
-      }
-    });
+  // Display selected file name
+  fileInput.addEventListener("change", function() {
+    if (this.files.length > 0) {
+      fileInfo.textContent = `Uploaded: ${this.files[0].name}`;
+    } else {
+      fileInfo.textContent = "";
+    }
+  });
 
-    // Flutterwave Payment
-    document.getElementById("payButton").addEventListener("click", function () {
-      const serviceName = serviceSelect.options[serviceSelect.selectedIndex].text;
-      let servicePrice = serviceSelect.options[serviceSelect.selectedIndex].getAttribute("data-price");
-      let finalService = serviceName;
+  // Show/hide extra options
+  serviceSelect.addEventListener("change", function() {
+    if (this.value === "CAC Registration") {
+      cacOptions.style.display = "block";
+      otherOptions.style.display = "none";
+    } else if (this.value === "Other") {
+      otherOptions.style.display = "block";
+      cacOptions.style.display = "none";
+    } else {
+      cacOptions.style.display = "none";
+      otherOptions.style.display = "none";
+      cacServiceSelect.value = "";
+    }
+  });
 
-      if (serviceSelect.value === "CAC Registration") {
-        const subOption = cacServiceSelect.options[cacServiceSelect.selectedIndex];
-        if (!subOption.value) {
-          alert("Please select a CAC Registration type.");
-          return;
-        }
-        finalService = "CAC Registration - " + subOption.value;
-        servicePrice = subOption.getAttribute("data-price");
-      }
+  // Flutterwave Payment + Email sending
+  document.getElementById("payButton").addEventListener("click", function () {
+    const serviceName = serviceSelect.options[serviceSelect.selectedIndex].text;
+    let servicePrice = serviceSelect.options[serviceSelect.selectedIndex].getAttribute("data-price");
+    let finalService = serviceName;
 
-      if (serviceSelect.value === "Other") {
-        const otherAmount = document.getElementById("other-amount").value;
-        if (!otherAmount || otherAmount < 100) {
-          alert("Please enter a valid amount for Other Services.");
-          return;
-        }
-        servicePrice = otherAmount;
-        finalService = "Other Services - Custom";
-      }
-
-      const quantity = document.getElementById("quantity").value;
-      const totalPrice = servicePrice * quantity;
-
-      const fullname = document.getElementById("fullname").value;
-      const email = document.getElementById("email").value;
-
-      if (!servicePrice || !fullname || !email) {
-        alert("Please fill all required fields before proceeding to payment.");
+    if (serviceSelect.value === "CAC Registration") {
+      const subOption = cacServiceSelect.options[cacServiceSelect.selectedIndex];
+      if (!subOption.value) {
+        alert("Please select a CAC Registration type.");
         return;
       }
+      finalService = "CAC Registration - " + subOption.value;
+      servicePrice = subOption.getAttribute("data-price");
+    }
 
-      // 🔹 Flutterwave Payment Setup
-      FlutterwaveCheckout({
-        public_key: "FLWPUBK-d9d9e126bd6e2b52a6021709ce5099c9-X", // Replace with your Flutterwave public key
-        tx_ref: "TXN-" + Date.now(),
-        amount: totalPrice,
-        currency: "NGN",
-        payment_options: "card, banktransfer, ussd",
-        customer: {
-          email: email,
-          name: fullname,
-        },
-        customizations: {
-          title: "TechNest Hub Cybercafe",
-          description: finalService,
-          logo: "image/logo.png",
-        },
-        callback: function (data) {
-          alert("Payment successful! Transaction ID: " + data.transaction_id);
-          window.location.href = "book.html?service=" + encodeURIComponent(finalService) + "&price=" + totalPrice + "&name=" + encodeURIComponent(fullname) + "&email=" + encodeURIComponent(email);
-        },
-        onclose: function() {
-          alert("Payment window closed.");
-        },
-      });
+    if (serviceSelect.value === "Other") {
+      const otherAmount = document.getElementById("other-amount").value;
+      if (!otherAmount || otherAmount < 100) {
+        alert("Please enter a valid amount for Other Services.");
+        return;
+      }
+      servicePrice = otherAmount;
+      finalService = "Other Services - Custom";
+    }
+
+    const quantity = document.getElementById("quantity").value;
+    const totalPrice = servicePrice * quantity;
+
+    const fullname = document.getElementById("fullname").value;
+    const email = document.getElementById("email").value;
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+    const message = document.getElementById("message").value;
+
+    if (!servicePrice || !fullname || !email) {
+      alert("Please fill all required fields before proceeding to payment.");
+      return;
+    }
+
+    // Proceed with payment
+    FlutterwaveCheckout({
+      public_key: "FLWPUBK-d9d9e126bd6e2b52a6021709ce5099c9-X",
+      tx_ref: "TXN-" + Date.now(),
+      amount: totalPrice,
+      currency: "NGN",
+      payment_options: "card, banktransfer, ussd",
+      customer: { email, name: fullname },
+      customizations: {
+        title: "TechNest Hub Cybercafe",
+        description: finalService,
+        logo: "image/logo.png",
+      },
+      callback: function (data) {
+        alert("✅ Payment successful! Transaction ID: " + data.transaction_id);
+
+        // Send email to admin with form details and uploaded file
+        const formData = new FormData();
+        formData.append("fullname", fullname);
+        formData.append("email", email);
+        formData.append("service", finalService);
+        formData.append("amount", totalPrice);
+        formData.append("date", date);
+        formData.append("time", time);
+        formData.append("message", message);
+        formData.append("transaction_id", data.transaction_id);
+        if (fileInput.files.length > 0) {
+          formData.append("credentials", fileInput.files[0]);
+        }
+
+        fetch("send_booking_email.php", {
+          method: "POST",
+          body: formData
+        })
+        .then(response => response.text())
+        .then(result => {
+          alert(result);
+          window.location.href = "thankyou.html";
+        })
+        .catch(error => {
+          alert("Error sending email: " + error);
+        });
+      },
+      onclose: function() {
+        alert("Payment window closed.");
+      },
     });
-  </script>
-</body>
-</html>
+  });
+</script>
