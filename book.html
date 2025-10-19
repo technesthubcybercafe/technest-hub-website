@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Service - TechNest Hub Cybercafe</title>
+  <link rel="stylesheet" href="css/book.css">
+  <!-- Flutterwave Inline Script -->
+  <script src="https://checkout.flutterwave.com/v3.js"></script>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="header-container">
+      <img src="image/logo.png" alt="TechNest Logo" class="logo">
+      <div class="branding">
+        <h1>TechNest Hub Cybercafe</h1>
+        <p>Your Digital Gateway – Fast, Reliable, Professional.</p>
+      </div>
+    </div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="book.html" class="active">Book a Session</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Booking Section -->
+  <section id="booking" class="section">
+    <h2>Book a Service</h2>
+    <form id="booking-form">
+      <label for="service">Select Service</label>
+      <select id="service" name="service" required>
+        <option value="">-- Choose a Service --</option>
+        <option value="High-Speed Internet Browsing" data-price="1000">High-Speed Internet Browsing – ₦1,000/30 Mins</option>
+        <option value="Color Printing" data-price="150">Color Printing – ₦150</option>
+        <option value="B/W Printing" data-price="50">B/W Printing – ₦50</option>
+        <option value="Lamination" data-price="300">Lamination (A4 & ID) – ₦300</option>
+        <option value="Software Installation" data-price="1500">Software Installation – ₦1,500</option>
+        <option value="Online Registrations" data-price="2500">Online Registrations – ₦2,500</option>
+        <option value="CV & Cover Letter Design" data-price="1000">CV & Cover Letter Design – ₦1,000</option>
+        <option value="ID Card Design & Printing" data-price="4500">ID Card Design & Printing – ₦4,500</option>
+        <option value="Photocopying" data-price="30">Photocopying Services – ₦30</option>
+        <option value="Document Scanning" data-price="150">Document Scanning – ₦150</option>
+        <option value="Email & Gmail Setup" data-price="300">Email & Gmail Setup – ₦300</option>
+        <option value="Digital Skills Tutorial" data-price="20000">Computer Training – ₦20,000/month</option>
+        <option value="Online Form Filling" data-price="2500">Online Form Filling – ₦2,500</option>
+        <option value="Web Design Services" data-price="45000">Web Design Services – ₦45,000</option>
+        <option value="Assignment Help" data-price="1500">Assignment Help – ₦1,500</option>
+        <option value="Bootable Flash Creation" data-price="1000">Bootable Flash Creation – ₦1,000</option>
+        <option value="CAC Registration" data-price="0">CAC Registration (Business, Company, NGO)</option>
+        <option value="Other" data-price="0">Other Services</option>
+      </select>
+
+      <!-- CAC Sub-services -->
+      <div id="cac-options" style="display:none; margin-top:10px;">
+        <label for="cac-service">Select CAC Type</label>
+        <select id="cac-service" name="cac-service">
+          <option value="">-- Choose CAC Service --</option>
+          <option value="Business Name" data-price="35000">Business Name Registration – ₦45,000</option>
+          <option value="Company" data-price="80000">Company Registration – ₦80,000</option>
+          <option value="NGO" data-price="170000">NGO Registration – ₦170,000</option>
+        </select>
+      </div>
+
+      <!-- Manual Amount for Other Services -->
+      <div id="other-options" style="display:none; margin-top:10px;">
+        <label for="other-amount">Enter Amount (₦)</label>
+        <input type="number" id="other-amount" name="other-amount" min="100" step="100" placeholder="Enter amount" />
+      </div>
+
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+
+      <label for="date">Choose Date</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Choose Time</label>
+      <input type="time" id="time" name="time" required>
+
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message / Additional Details</label>
+      <textarea id="message" name="message" placeholder="Enter any additional details here..."></textarea>
+
+      <button type="button" id="payButton">Proceed to Payment</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-contact">
+      <p>Contact us: <a href="mailto:codewithengrchris@gmail.com">codewithengrchris@gmail.com</a> | Phone: 08082848183</p>
+      <p>Follow us:
+        <a href="https://www.facebook.com/profile.php?id=61578650578944" target="_blank" rel="noopener">Facebook</a> |
+        <a href="https://instagram.com/technesthubcybercafe" target="_blank" rel="noopener">Instagram</a>
+      </p>
+      <p>Head Office: Keffi, Nasarawa State</p>
+      <p>© 2025 TechNest Hub Cybercafe. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const serviceSelect = document.getElementById("service");
+    const cacOptions = document.getElementById("cac-options");
+    const otherOptions = document.getElementById("other-options");
+    const cacServiceSelect = document.getElementById("cac-service");
+
+    // Show/hide extra options
+    serviceSelect.addEventListener("change", function() {
+      if (this.value === "CAC Registration") {
+        cacOptions.style.display = "block";
+        otherOptions.style.display = "none";
+      } else if (this.value === "Other") {
+        otherOptions.style.display = "block";
+        cacOptions.style.display = "none";
+      } else {
+        cacOptions.style.display = "none";
+        otherOptions.style.display = "none";
+        cacServiceSelect.value = "";
+      }
+    });
+
+    // Flutterwave Payment
+    document.getElementById("payButton").addEventListener("click", function () {
+      const serviceName = serviceSelect.options[serviceSelect.selectedIndex].text;
+      let servicePrice = serviceSelect.options[serviceSelect.selectedIndex].getAttribute("data-price");
+      let finalService = serviceName;
+
+      if (serviceSelect.value === "CAC Registration") {
+        const subOption = cacServiceSelect.options[cacServiceSelect.selectedIndex];
+        if (!subOption.value) {
+          alert("Please select a CAC Registration type.");
+          return;
+        }
+        finalService = "CAC Registration - " + subOption.value;
+        servicePrice = subOption.getAttribute("data-price");
+      }
+
+      if (serviceSelect.value === "Other") {
+        const otherAmount = document.getElementById("other-amount").value;
+        if (!otherAmount || otherAmount < 100) {
+          alert("Please enter a valid amount for Other Services.");
+          return;
+        }
+        servicePrice = otherAmount;
+        finalService = "Other Services - Custom";
+      }
+
+      const quantity = document.getElementById("quantity").value;
+      const totalPrice = servicePrice * quantity;
+
+      const fullname = document.getElementById("fullname").value;
+      const email = document.getElementById("email").value;
+
+      if (!servicePrice || !fullname || !email) {
+        alert("Please fill all required fields before proceeding to payment.");
+        return;
+      }
+
+      // 🔹 Flutterwave Payment Setup
+      FlutterwaveCheckout({
+        public_key: "FLWPUBK-d9d9e126bd6e2b52a6021709ce5099c9-X", // Replace with your Flutterwave public key
+        tx_ref: "TXN-" + Date.now(),
+        amount: totalPrice,
+        currency: "NGN",
+        payment_options: "card, banktransfer, ussd",
+        customer: {
+          email: email,
+          name: fullname,
+        },
+        customizations: {
+          title: "TechNest Hub Cybercafe",
+          description: finalService,
+          logo: "image/logo.png",
+        },
+        callback: function (data) {
+          alert("Payment successful! Transaction ID: " + data.transaction_id);
+          window.location.href = "book.html?service=" + encodeURIComponent(finalService) + "&price=" + totalPrice + "&name=" + encodeURIComponent(fullname) + "&email=" + encodeURIComponent(email);
+        },
+        onclose: function() {
+          alert("Payment window closed.");
+        },
+      });
+    });
+  </script>
+</body>
+</html>
