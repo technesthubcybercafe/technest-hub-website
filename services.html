@@ -23,6 +23,7 @@
     <nav class="navbar">
       <a href="index.html">Home</a>
       <a href="services.html" class="active">Services</a>
+      <a href="book.html">Book a Session</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
@@ -32,119 +33,108 @@
     <h2>Our Services</h2>
     <div class="service-grid">
 
-      <div class="service-item" onclick="goToContact('High-Speed Internet Browsing')">
+      <div class="service-item" onclick="goToBooking('High-Speed Internet Browsing',)">
         <img src="image/browsing.jpg" alt="Browsing" width="100%" />
         <h3>High-Speed Internet Browsing</h3>
         <p>Enjoy fast and uninterrupted internet access with secure connectivity.</p>
       </div>
 
-      <div class="service-item" onclick="goToContact('Color & B/W Printing')">
+      <div class="service-item" onclick="goToBooking('Color & B/W Printing',)">
         <img src="image/printing.jpg" alt="Printing" width="100%" />
         <h3>Color & B/W Printing</h3>
         <p>Professional color and black-and-white printing for documents, graphics, and more.</p>
       </div>
 
-      <div class="service-item" onclick="goToContact('Lamination (A4 & ID)')">
+      <div class="service-item" onclick="goToBooking('Lamination (A4 & ID)', )">
         <img src="image/lamination.jpg" alt="Lamination" width="100%" />
         <h3>Lamination (A4 & ID)</h3>
         <p>Protect your documents with high-quality lamination for A4 and ID sizes.</p>
       </div>
 
-      <div class="service-item" onclick="goToContact('Software Installation')">
+      <div class="service-item" onclick="goToBooking('Software Installation', )">
         <img src="image/in.jpg" alt="Software Installation" width="100%" />
         <h3>Software Installation</h3>
         <p>We install essential applications and tools for personal and academic use.</p>
       </div>
 
-      <div class="service-item" onclick="window.location.href='contact.html?service=Online%20Registrations'">
+      <div class="service-item" onclick="goToBooking('Online Registrations', )">
         <img src="image/online.jpg" alt="Online Registration" width="100%" />
         <h3>Online Registrations</h3>
         <p>WAEC, NECO, NYSC, JAMB, recruitment, and all online form services handled here.</p>
       </div>
 
-      <div class="service-item" onclick="window.location.href='contact.html?service=CV%20%26%20Cover%20Letter%20Design'">
+      <div class="service-item" onclick="goToBooking('CV & Cover Letter Design', )">
         <img src="image/cover.jpg" alt="CV Design" width="100%" />
         <h3>CV & Cover Letter Design</h3>
         <p>Boost your job applications with professionally written and designed CVs and cover letters.</p>
       </div>
 
-      <div class="service-item" onclick="window.location.href='contact.html?service=ID%20Card%20Design%20%26%20Printing'">
+      <div class="service-item" onclick="goToBooking('ID Card Design & Printing', )">
         <img src="image/id.jpg" alt="ID Card Design" width="100%" />
         <h3>ID Card Design & Printing</h3>
         <p>Create professional identification cards with customized layouts and lamination.</p>
       </div>
 
-      <div class="service-item" onclick="window.location.href='contact.html?service=Photocopying%20Services'">
+      <div class="service-item" onclick="goToBooking('Photocopying Services', )">
         <img src="image/photocopying.jpg" alt="Photocopying" width="100%" />
         <h3>Photocopying Services</h3>
         <p>Efficient black-and-white or colored photocopying at affordable prices.</p>
       </div>
 
-      <div class="service-item" onclick="window.location.href='contact.html?service=Data%20Services%20%26%20Airtime'">
+      <div class="service-item" onclick="goToBooking('Data Services & Airtime', )">
         <img src="image/data.jpg" alt="Data Services" width="100%" />
         <h3>Data Services & Airtime</h3>
         <p>We sell and load affordable data bundles and airtime recharge for all networks.</p>
       </div>
 
-      <div class="service-item" onclick="window.location.href='contact.html?service=Digital%20Passport%20Photos'">
-        <img src="image/digital.jpg" alt="Passport Services" width="100%" />
-        <h3>Digital Passport Photos</h3>
-        <p>Snap and print passport photos for official documents and IDs.</p>
-      </div>
-
-      <div class="service-item" onclick="window.location.href='contact.html?service=Document%20Scanning'">
+      <div class="service-item" onclick="goToBooking('Document Scanning', )">
         <img src="image/scan.jpg" alt="Scanning" width="100%" />
         <h3>Document Scanning</h3>
         <p>Convert your documents to digital format with our high-resolution scanners.</p>
       </div>
 
-      <div class="service-item" onclick="window.location.href='contact.html?service=Email%20%26%20Gmail%20Setup'">
+      <div class="service-item" onclick="goToBooking('Email & Gmail Setup', )">
         <img src="image/gmail.png" alt="Email & Gmail Services" width="100%" />
         <h3>Email & Gmail Setup</h3>
         <p>Professional email creation, password recovery, and security assistance.</p>
       </div>
 
-      <div class="service-item" onclick="window.location.href='contact.html?service=Digital%20Skills%20Tutorial'">
+      <div class="service-item" onclick="goToBooking('Digital Skills Tutorial', )">
         <img src="image/typesetting.jpg" alt="Tutorial" width="100%" />
         <h3>Digital Skills Tutorial</h3>
         <p>We train students and individuals in typing, printing, design, and more.</p>
       </div>
 
-      <div class="service-item" onclick="window.location.href='contact.html?service=Online%20Form%20Filling'">
+      <div class="service-item" onclick="goToBooking('Online Form Filling', )">
         <img src="image/filling.jpg" alt="Form Filling" width="100%" />
         <h3>Online Form Filling</h3>
         <p>Fast and accurate assistance with scholarship, job, school, and government forms.</p>
       </div>
 
-      <div class="service-item" onclick="window.location.href='contact.html?service=Web%20Design%20Services'">
+      <div class="service-item" onclick="goToBooking('Web Design Services', )">
         <img src="image/web.jpg" alt="Website Services" width="100%" />
         <h3>Web Design Services</h3>
         <p>We help small businesses and students build professional websites and portfolios.</p>
       </div>
 
-      <div class="service-item" onclick="window.location.href='contact.html?service=Assignment%20Help'">
+      <div class="service-item" onclick="goToBooking('Assignment Help', )">
         <img src="image/assignment.jpg" alt="Assignment Help" width="100%" />
         <h3>Assignment Help</h3>
         <p>Support with research writing, formatting, referencing, and academic submissions.</p>
       </div>
 
-      <div class="service-item" onclick="window.location.href='contact.html?service=Large%20Format%20Printing'">
+      <div class="service-item" onclick="goToBooking('Large Format Printing', )">
         <img src="image/large.jpg" alt="Large Format" width="100%" />
         <h3>Large Format Printing</h3>
         <p>Print banners, posters, and signs for events and businesses with vibrant color output.</p>
       </div>
 
-      <div class="service-item" onclick="window.location.href='contact.html?service=Bootable%20Flash%20Creation'">
+      <div class="service-item" onclick="goToBooking('Bootable Flash Creation', )">
         <img src="image/boot.jpg" alt="USB Boot Setup" width="100%" />
         <h3>Bootable Flash Creation</h3>
         <p>We create Windows or Linux bootable USB drives for formatting or repair.</p>
       </div>
 
-      <div class="service-item" onclick="window.location.href='contact.html?service=Recharge%20Card%20Sales'">
-        <img src="image/recharge.jpg" alt="Recharge Cards" width="100%" />
-        <h3>Recharge Card Sales</h3>
-        <p>Buy recharge cards in bulk or single units for MTN, Airtel, Glo, and 9mobile.</p>
-      </div>
     </div>
   </section>
 
@@ -160,11 +150,13 @@
     <p>© 2025 TechNest Hub Cybercafe. All rights reserved.</p>
   </div>
 </footer>
+
 <script src="js/main.js"></script>
 
 <script>
-  function goToContact(serviceName) {
-    window.location.href = "contact.html?service=" + encodeURIComponent(serviceName);
+  function goToBooking(serviceName, price) {
+    // redirect to book.html with service pre-filled
+    window.location.href = "book.html?service=" + encodeURIComponent(serviceName) + "&price=" + price;
   }
 
   // Accessibility: make .service-item keyboard operable
@@ -180,17 +172,6 @@
   });
 </script>
 
-<!-- Floating Landbot Chat -->
-<script type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
-<script type="module">
-  new Landbot.Livechat({
-    configUrl: 'https://storage.googleapis.com/landbot.site/v3/H-3087797-URMJTSWLRB14H2X7/index.json'
-  });
-</script>
 <script src="https://files.bpcontent.cloud/2025/08/07/10/20250807100845-06J8YQYD.js" defer></script>
-
 </body>
 </html>
-
-
-
