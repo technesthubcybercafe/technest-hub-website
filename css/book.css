@@ -1,4 +1,11 @@
-/* Body and background */
+/* =========================================
+   GLOBAL STYLES & BODY
+========================================= */
+* {
+  transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
@@ -15,10 +22,19 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 0;
 }
-/* Header styling */
+
+/* Smooth entry animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   HEADER
+========================================= */
 header {
   position: relative;
   z-index: 1;
@@ -58,7 +74,9 @@ header {
   text-align: center;
 }
 
-/* Navbar styles */
+/* =========================================
+   NAVBAR
+========================================= */
 .navbar {
   display: flex;
   flex-wrap: wrap;
@@ -74,7 +92,6 @@ header {
   border-radius: 6px;
   background-color: rgba(0, 255, 255, 0.1);
   font-weight: 600;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar a:hover,
@@ -83,16 +100,29 @@ header {
   color: #000;
   outline: none;
 }
-/* Booking Section */
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* =========================================
+   BOOKING SECTION
+========================================= */
 #booking {
   padding: 60px 20px;
   background-color: rgba(0, 0, 0, 0.65);
-  max-width: 900px;   /* expanded from 700px → 900px */
+  max-width: 900px;
   margin: 0 auto 60px;
   border-radius: 12px;
   box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
   position: relative;
   z-index: 1;
+  animation: fadeIn 1s ease-in-out;
 }
 
 #booking h2 {
@@ -104,7 +134,9 @@ header {
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
-/* Form Layout */
+/* =========================================
+   FORM LAYOUT
+========================================= */
 #booking-form {
   display: flex;
   flex-direction: column;
@@ -119,35 +151,71 @@ header {
 }
 
 #booking-form input,
-#booking-form select {
+#booking-form select,
+#booking-form textarea {
   padding: 12px 15px;
   border: none;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.15);
-  color: #00ffff;             /* changed text color inside inputs/selects */
+  color: #00ffff;
   font-size: 1rem;
   width: 100%;
   transition: box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
-#booking-form input::placeholder {
-  color: #80ffff;             /* brighter placeholder for visibility */
+#booking-form input::placeholder,
+#booking-form textarea::placeholder {
+  color: #80ffff;
 }
 
 #booking-form select option {
-  background-color: #000;     /* dropdown background */
-  color: #00ffff;             /* dropdown text color */
+  background-color: #000;
+  color: #00ffff;
 }
 
 #booking-form input:focus,
-#booking-form select:focus {
+#booking-form select:focus,
+#booking-form textarea:focus {
   outline: none;
   box-shadow: 0 0 8px #00ffff;
   background: rgba(0, 255, 255, 0.2);
-  color: #fff;                /* switch to white text when focused */
+  color: #fff;
 }
 
-/* Submit button */
+#booking-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* =========================================
+   FILE UPLOAD INPUT
+========================================= */
+#booking-form input[type="file"] {
+  background: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  border: 1px dashed rgba(0, 255, 255, 0.4);
+  cursor: pointer;
+  padding: 12px;
+}
+
+#booking-form input[type="file"]::file-selector-button {
+  background-color: #00ffff;
+  color: #000;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#booking-form input[type="file"]::file-selector-button:hover {
+  background-color: #00cccc;
+}
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
 #booking-form button {
   padding: 14px;
   border: none;
@@ -166,7 +234,13 @@ header {
   box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
 
-/* Sub-options (CAC & Other Services) */
+#booking-form button:active {
+  transform: scale(0.97);
+}
+
+/* =========================================
+   SUB-OPTIONS
+========================================= */
 #cac-options,
 #other-options {
   background-color: rgba(255, 255, 255, 0.05);
@@ -175,11 +249,13 @@ header {
   border: 1px solid rgba(0, 255, 255, 0.2);
 }
 
-/* Responsive */
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
 @media (max-width: 600px) {
   #booking {
     padding: 40px 15px;
-    max-width: 100%;   /* full width on small screens */
+    max-width: 100%;
   }
 
   #booking h2 {
@@ -190,30 +266,16 @@ header {
     font-size: 1rem;
     padding: 12px;
   }
-}
-#booking-form textarea {
-  padding: 12px 15px;
-  border: none;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.15);
-  color: #00ffff;
-  font-size: 1rem;
-  width: 100%;
-  min-height: 120px;         /* bigger height for typing */
-  resize: vertical;          /* allow user to expand vertically */
-  transition: box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+
+  footer {
+    font-size: 0.8rem;
+    padding: 15px 10px;
+  }
 }
 
-#booking-form textarea::placeholder {
-  color: #80ffff;
-}
-
-#booking-form textarea:focus {
-  outline: none;
-  box-shadow: 0 0 8px #00ffff;
-  background: rgba(0, 255, 255, 0.2);
-  color: #fff;
-}
+/* =========================================
+   FOOTER
+========================================= */
 footer {
   background-color: rgba(0, 0, 0, 0.75);
   color: #ccc;
@@ -232,13 +294,11 @@ footer a {
   color: #00ffff;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease;
 }
 
 footer a:hover,
 footer a:focus {
   color: #00cccc;
-  outline: none;
 }
 
 .footer-contact p {
